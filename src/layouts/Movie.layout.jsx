@@ -2,16 +2,14 @@ import React from "react";
 
 //components
 import Navbar from "../components/Navbar/navbar.component";
-import HeroCarousel from "../components/HeroCarousel/HeroCarousel.component";
 
-const DefaultLayout = (props) => {
+const MovieLayout = (props) => {
   return (
     <>
       <Navbar />
-      <HeroCarousel />
       {props.children}
     </>
   );
 };
 
-export default DefaultLayout;
+export default MovieLayout;
