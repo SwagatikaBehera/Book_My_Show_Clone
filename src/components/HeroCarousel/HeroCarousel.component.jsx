@@ -31,7 +31,7 @@ const HeroCarousel = () => {
   const images = [
     "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
     "https://ik.imagekit.io/ikmedia/backlit.jpg",
-    "https://lh3.googleusercontent.com/proxy/xcD1QYXYorzGmm7GN02ZQxUc8VpnjnyibUxY04_L_LcEads73EL2dhQh3A4a7aSQwg9uuJCUWOyReFOOXvJetVJ_j2RB39yPNojBhNWIZ42iTRiINtEOPWTppaJ-90MNa4BMbe8CCRDxAvIFBw6GrNuii1cOwlTl",
+    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
     "https://wowslider.com/sliders/demo-18/data1/images/hongkong1081704.jpg",
   ];
   return (
