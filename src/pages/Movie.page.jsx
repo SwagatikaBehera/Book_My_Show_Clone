@@ -3,8 +3,46 @@ import { FaCcVisa, FaCcApplePay } from "react-icons/fa";
 
 // Component
 import MovieHero from "../components/MovieHero/MovieHero.component";
+import Cast from "../components/Cast/Cast.component";
+import PosterSlider from "../components/PosterSlider/PosterSlider.component";
+
+// Config
+import TempPosters from "../config/TempPosters.config";
 
 const Movie = () => {
+  const settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          InitialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <MovieHero />
@@ -54,6 +92,62 @@ const Movie = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="my-8">
+          <hr />
+        </div>
+
+        <div>
+          <h2 className="text-gray-800 font-bold text-2xl mb-3">Cast & Crew</h2>
+          <div className="flex flex-wrap gap-4 ">
+            <Cast
+              image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/jodie-foster-1005-24-03-2017-12-35-26.jpg"
+              castName="Jodie Foster"
+              role="Sarah Tobias"
+            />
+            <Cast
+              image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/jodie-foster-1005-24-03-2017-12-35-26.jpg"
+              castName="Jodie Foster"
+              role="Sarah Tobias"
+            />
+            <Cast
+              image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/jodie-foster-1005-24-03-2017-12-35-26.jpg"
+              castName="Jodie Foster"
+              role="Sarah Tobias"
+            />
+            <Cast
+              image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/jodie-foster-1005-24-03-2017-12-35-26.jpg"
+              castName="Jodie Foster"
+              role="Sarah Tobias"
+            />
+          </div>
+        </div>
+
+        <div className="my-8">
+          <hr />
+        </div>
+
+        <div className="my-8">
+          <PosterSlider
+            config={settings}
+            images={TempPosters}
+            title="You might also like"
+            isDark={false}
+          />
+        </div>
+
+        <div className="my-8">
+          <hr />
+        </div>
+
+        <div className="my-8">
+          <PosterSlider
+            config={settings}
+            images={TempPosters}
+            title="BMS XCLUSIVE"
+            isDark={false}
+          />
         </div>
       </div>
     </>
