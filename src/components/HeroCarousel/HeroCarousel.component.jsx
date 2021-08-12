@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HeroSlider from "react-slick";
+import axios from "axios";
 
 // Component
-import { NextArrow, PrevArrow, NextArrowSm,PrevArrowSm } from "./Arrows.component";
+import {
+  NextArrow,
+  PrevArrow,
+  NextArrowSm,
+  PrevArrowSm,
+} from "./Arrows.component";
 
 const HeroCarousel = () => {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const requestNowPlayingMovies = async () => {
+      const getImages = await axios.get("/movie/now_playing");
+      setImages(getImages.data.results);
+    };
+    requestNowPlayingMovies();
+  }, []);
+
   const settingsLG = {
     arrows: true,
     autoplay: true,
@@ -27,19 +43,17 @@ const HeroCarousel = () => {
     prevArrow: <PrevArrowSm />,
   };
 
-  const images = [
-    "https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270",
-    "https://ik.imagekit.io/ikmedia/backlit.jpg",
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-    "https://wowslider.com/sliders/demo-18/data1/images/hongkong1081704.jpg",
-  ];
   return (
     <>
       <div className="lg:hidden">
         <HeroSlider {...settings}>
           {images.map((image) => (
             <div className="w-full h-52 md:h-72 py-3">
-              <img src={image} alt="CarousalImage" className="w-full h-full" />
+              <img
+                src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`}
+                alt="CarousalImage"
+                className="w-full h-full"
+              />
             </div>
           ))}
         </HeroSlider>
@@ -50,13 +64,13 @@ const HeroCarousel = () => {
           {images.map((image) => (
             <div className="w-full h-96 px-2 py-3">
               <img
-                src={image}
+                src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`}
                 alt="CarousalImage"
                 className="w-full h-full rounded-md"
               />
             </div>
           ))}
-        </HeroSlider>{" "}
+        </HeroSlider>
       </div>
     </>
   );
