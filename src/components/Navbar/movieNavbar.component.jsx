@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   BiChevronRight,
   BiSearchAlt2,
@@ -7,12 +7,17 @@ import {
 } from "react-icons/bi";
 import { MdArrowDropDown } from "react-icons/md";
 
+// Context
+import { MovieContext } from "../../Context/movie.context";
+
 const NavSm = () => {
+  const { movie } = useContext(MovieContext);
+
   return (
     <>
       <div className="text-white flex items-center justify-between">
         <div>
-          <h3 className="text-2xl font-bold">It All Starts Here!</h3>
+          <h3 className="text-2xl font-bold">{movie.original_title}</h3>
         </div>
         <div className="w-7 h-7">
           <BiShareAlt className="w-full h-full text-gray-200" />
@@ -21,8 +26,6 @@ const NavSm = () => {
     </>
   );
 };
-
-
 
 const Navlg = () => {
   return (
