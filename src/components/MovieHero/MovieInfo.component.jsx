@@ -1,9 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+
+// Component
+import PaymentModal from "../PaymentModel/Payment.component";
 
 // Context
 import { MovieContext } from "../../Context/movie.context";
 
 const MovieInfo = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [price, setPrice] = useState(0);
+
   const { movie } = useContext(MovieContext);
 
   const genres = movie.genres?.map(({ name }) => name).join(", "); // Optional chaining
@@ -11,8 +17,19 @@ const MovieInfo = () => {
     ?.map(({ name }) => name)
     .join(", ");
 
+  const rentMovies = () => {
+    setIsOpen(true);
+    setPrice(149);
+  };
+
+  const buyMovies = () => {
+    setIsOpen(true);
+    setPrice(749);
+  };
+
   return (
     <>
+      <PaymentModal setIsOpen={setIsOpen} isOpen={isOpen} price={price} />
       <div className="flex flex-col gap-3  lg:gap-8">
         <div className="flex items-center gap-3 md:px-4">
           <div className="w-40 h-8">
@@ -28,7 +45,7 @@ const MovieInfo = () => {
         </div>
 
         <h1 className="hidden lg:block text-white text-4xl ml-3 font-bold">
-         {movie.original_title}
+          {movie.original_title}
         </h1>
 
         <div className="flex flex-col-reverse gap-3 lg:flex-col">
@@ -44,11 +61,17 @@ const MovieInfo = () => {
           </div>
 
           <div className="flex items-center gap-2 md:w-screen px-3 lg:w-full">
-            <button className="bg-red-600 w-full py-2 text-white font-semibold rounded-lg">
+            <button
+              className="bg-red-600 w-full py-2 text-white font-semibold rounded-lg"
+              onClick={rentMovies}
+            >
               Rent ₹149
             </button>
-            <button className="bg-red-600 w-full py-2 text-white font-semibold rounded-lg">
-              Buy ₹149
+            <button
+              className="bg-red-600 w-full py-2 text-white font-semibold rounded-lg"
+              onClick={buyMovies}
+            >
+              Buy ₹749
             </button>
           </div>
         </div>
