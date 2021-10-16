@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+
 import MovieInfo from "./MovieInfo.component";
 
+// Context
+import { MovieContext } from "../../Context/movie.context";
+
 const MovieHero = () => {
+  const { movie } = useContext(MovieContext);
   return (
     <>
       <div>
@@ -15,7 +20,7 @@ const MovieHero = () => {
           </div>
           <div className="w-full h-56 bg-opacity-50 absolute bg-black z-10 bottom-0 " />
           <img
-            src="https://in.bmscdn.com/iedb/movies/images/extra/horizontal_no_logo/mobile/listing/xxlarge/tailgate-et00138770-02-07-2021-02-48-39.jpg"
+            src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
             alt="poster"
             className="w-full h-full"
           />
@@ -31,7 +36,7 @@ const MovieHero = () => {
           </div>
           <div className="w-full h-56 bg-opacity-50 absolute bg-black z-10 bottom-0 " />
           <img
-            src="https://in.bmscdn.com/iedb/movies/images/extra/horizontal_no_logo/mobile/listing/xxlarge/tailgate-et00138770-02-07-2021-02-48-39.jpg"
+            src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
             alt="poster"
             className="w-full h-full"
           />
@@ -50,7 +55,7 @@ const MovieHero = () => {
           <div className="absolute left-24 top-10 flex items-center gap-10">
             <div className=" w-64 h-96  ">
               <img
-                src="https://in.bmscdn.com/iedb/movies/images/extra/vertical_logo/mobile/thumbnail/xxlarge/tailgate-et00138770-02-07-2021-02-48-39.jpg"
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 alt="poster"
                 className="w-full h-full rounded-xl"
               />
@@ -61,7 +66,7 @@ const MovieHero = () => {
           </div>
 
           <img
-            src="https://in.bmscdn.com/iedb/movies/images/extra/horizontal_no_logo/mobile/listing/xxlarge/tailgate-et00138770-02-07-2021-02-48-39.jpg"
+            src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt="poster"
             className="w-full h-full"
           />

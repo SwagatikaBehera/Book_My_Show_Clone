@@ -1,10 +1,5 @@
 import React, { useContext } from "react";
-import {
-  BiChevronRight,
-  BiSearchAlt2,
-  BiMenu,
-  BiShareAlt,
-} from "react-icons/bi";
+import { BiSearchAlt2, BiMenu, BiShareAlt } from "react-icons/bi";
 import { MdArrowDropDown } from "react-icons/md";
 
 // Context
